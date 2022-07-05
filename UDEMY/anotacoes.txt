@@ -1,0 +1,4 @@
+Trabalhando com seleção de elementos na dom
+* usando getElementBy
+* querySelector
+* document
