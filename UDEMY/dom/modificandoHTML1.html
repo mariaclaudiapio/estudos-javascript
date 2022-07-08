@@ -1,3 +1,11 @@
+<!--
+    Formas de inserir elementos no HTML através do JavaScript:
+    * usando o createElement;
+    * usando o appendChild, para inserir um elemento dentro do outro;
+    * usando o insertBefore, para mencionar o local onde o elemento deve ser incluído;
+    * usando o cloneNode para clonar um elemento.
+-->
+
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +17,31 @@
 
 <body class='conteudo exercicio'>
     <script>
-        // ...
+        const body = document.querySelector('body')
+
+        const div1 = document.createElement('div') // aqui é criado o elemento
+        div1.classList.add('destaque') // aqui é criada a classe para o elemento
+        div1.innerHTML = 'Primeiro' // aqui é passado o texto para o elemento
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('vm-atributo', 'valor') // aqui é setado um atributo
+        div2.innerHTML = 'Segundo'
+
+        const p = document.createElement('p') // primeiro foi criado um parágrafo
+        p.innerHTML = 'Terceiro' // depois foi determinado o texto desse parágrafo
+        const div3 = document.createElement('div') // por fim foi criado uma div
+        div3.appendChild(p) // por último,foi inserido esse parágrafo dentro da div
+
+        body.appendChild(div1) // nesse e nas três linhas seguintes, as divs são inseridas dentro do body
+        body.appendChild(div2)
+        body.appendChild(div3)
+
+        const texto = document.createTextNode('Antes...') // aqui é criado um nó de texto
+        div3.insertBefore(texto, div3.childNodes[0]) // aqui é inserido o texto acima antes do nó 0
+
+        const div4 = div3.cloneNode(true) /* o valor true clona o item junto com os filhos; o valor false copia o item sem os filhos */
+        body.appendChild(div4)
+        body.removeChild(div3) // aqui o elemento "div3" é removido
     </script>
 </body>
 
